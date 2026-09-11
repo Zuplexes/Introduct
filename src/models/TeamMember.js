@@ -24,9 +24,15 @@ export class TeamMember {
     return `https://github.com/${this.username}`;
   }
 
-  /** รูปโปรไฟล์จาก GitHub (ย่อขนาดฝั่ง GitHub เพื่อไม่ต้องโหลดรูปเต็ม) */
+  /**
+   * รูปโปรไฟล์จาก GitHub (ย่อขนาดฝั่ง GitHub เพื่อไม่ต้องโหลดรูปเต็ม)
+   * ตั้ง VITE_AVATAR_BASE ตอน build ถ้าต้องเสิร์ฟรูปเอง เช่น preview ที่บล็อกรูปข้ามโดเมน
+   */
   avatarUrl(size = 256) {
-    return `https://github.com/${this.username}.png?size=${size}`;
+    const base = import.meta.env?.VITE_AVATAR_BASE;
+    return base
+      ? `${base}/${this.username}.png`
+      : `https://github.com/${this.username}.png?size=${size}`;
   }
 
   /** ตัวอักษรแรก ใช้เป็น fallback ตอนโหลดรูปไม่ได้ */

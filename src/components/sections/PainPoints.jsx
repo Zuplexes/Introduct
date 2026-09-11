@@ -1,5 +1,7 @@
-import { Icon, Reveal, Section } from "./ui.jsx";
-import { PAIN_POINTS } from "../data/content.js";
+import Icon from "../common/Icon.jsx";
+import Reveal from "../common/Reveal.jsx";
+import Section from "../common/Section.jsx";
+import { PAIN_POINTS } from "../../data/content.js";
 
 export default function PainPoints() {
   return (
@@ -9,7 +11,7 @@ export default function PainPoints() {
       title="ปัญหาที่เราแก้ไข"
       sub="สิ่งที่ทีมปฏิบัติงานเจอทุกวันกับกองเอกสาร ก่อนจะมีระบบเข้ามาช่วย"
     >
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {PAIN_POINTS.map((p, i) => (
           <Reveal
             key={p.key}

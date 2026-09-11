@@ -1,8 +1,9 @@
-import { GitHubMark, Reveal } from "./ui.jsx";
+import Reveal from "../common/Reveal.jsx";
+import { GithubIcon } from "../common/Icon.jsx";
 
 /**
- * การ์ดสมาชิก 1 คน
- * @param {{ member: import("../models/TeamMember.js").TeamMember, i: number }} props
+ * การ์ดสมาชิก 1 คน — ทุก URL มาจากอ็อบเจกต์ TeamMember
+ * @param {{ member: import("../../models/TeamMember.js").TeamMember, i?: number }} props
  */
 export default function MemberCard({ member, i = 0 }) {
   return (
@@ -33,7 +34,7 @@ export default function MemberCard({ member, i = 0 }) {
         rel="noreferrer"
         className="mt-4 inline-flex items-center gap-1.5 rounded-lg border border-white/15 px-3 py-1.5 text-xs text-slate-200 transition hover:border-cyan-400/60 hover:text-cyan-300"
       >
-        <GitHubMark />
+        <GithubIcon />
         @{member.username}
       </a>
     </Reveal>

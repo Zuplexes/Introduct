@@ -4,13 +4,15 @@
   --color-ink: #020617;
   --color-accent: #22d3ee;
   --color-accent-2: #a78bfa;
+  --font-sans: "Kanit", ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
   background: var(--color-ink);
+  font-family: var(--font-sans);
 }
 
-/* scroll reveal — คลาส .in ถูกเติมโดย useReveal() */
+/* scroll reveal — คลาส .in ถูกเติมโดย <Reveal> เมื่อ element เลื่อนเข้าจอ */
 [data-reveal] {
   opacity: 0;
   transform: translateY(24px);

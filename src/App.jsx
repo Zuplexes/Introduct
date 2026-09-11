@@ -1,28 +1,33 @@
-import Hero from "./components/Hero.jsx";
-import PainPoints from "./components/PainPoints.jsx";
-import Solutions from "./components/Solutions.jsx";
-import Team from "./components/Team.jsx";
-import { useReveal } from "./components/ui.jsx";
-import { GITHUB_ORG } from "./data/team.js";
+import { useEffect } from "react";
+import Navbar from "./components/layout/Navbar.jsx";
+import Footer from "./components/layout/Footer.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import ProductPage from "./pages/ProductPage.jsx";
+import MembersPage from "./pages/MembersPage.jsx";
+import { useHashRoute } from "./router.js";
+
+const ROUTES = {
+  "/": HomePage,
+  "/product": ProductPage,
+  "/members": MembersPage,
+};
 
 export default function App() {
-  useReveal();
+  const path = useHashRoute();
+  const Page = ROUTES[path] ?? HomePage; // path มั่ว ๆ ให้กลับหน้าแรก
+
+  // เปลี่ยนหน้าแล้วเลื่อนขึ้นบนสุด เหมือน navigation ปกติ
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [path]);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-300 selection:bg-cyan-400/30">
-      <Hero />
-      <PainPoints />
-      <Solutions />
-      <Team />
-
-      <footer className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-10 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>Zuplex · Document Processing (OCR + NER)</p>
-          <a href={GITHUB_ORG} target="_blank" rel="noreferrer" className="transition hover:text-cyan-300">
-            {GITHUB_ORG.replace("https://", "")}
-          </a>
-        </div>
-      </footer>
+      <Navbar />
+      <main>
+        <Page />
+      </main>
+      <Footer />
     </div>
   );
 }

@@ -28,7 +28,15 @@ export const PAIN_POINTS = [
 /** เข้าถึง pain point ตามเลขข้อ เพื่อผูกกับ Solution ด้านล่าง */
 const pain = (id) => PAIN_POINTS.find((p) => p.id === id);
 
+// ลำดับใน array = ลำดับการทำงานจริง ใช้ทั้งการ์ดโซลูชันและแผนภาพในหน้า product
 export const SOLUTIONS = [
+  new Solution({
+    name: "Document Classification",
+    icon: "M4 4h7v7H4zM13 13h7v7h-7zM17 4v7M13.5 7.5h7",
+    description: "จำแนกประเภทเอกสารให้อัตโนมัติตั้งแต่ขั้นรับเข้า เช่น ต้นฉบับหรือสำเนา",
+    solves: [pain(3)],
+    benefit: "จัดเอกสารเข้าสายงานที่ถูกต้องตั้งแต่ต้นทาง",
+  }),
   new Solution({
     name: "OCR Engine",
     icon: "M4 5h16v14H4zM8 9h8M8 13h5",
@@ -36,13 +44,6 @@ export const SOLUTIONS = [
       "อ่านภาพเอกสารและใบแจ้งหนี้ แล้วแปลงเป็นข้อความที่ค้นหาและนำไปใช้ต่อได้อัตโนมัติ",
     solves: [pain(1)],
     benefit: "ลดงานคีย์ด้วยมือ ทำให้รับเอกสารปริมาณมากได้",
-  }),
-  new Solution({
-    name: "Document Classification",
-    icon: "M4 4h7v7H4zM13 13h7v7h-7zM17 4v7M13.5 7.5h7",
-    description: "จำแนกประเภทเอกสารให้อัตโนมัติตั้งแต่ขั้นรับเข้า เช่น ต้นฉบับหรือสำเนา",
-    solves: [pain(3)],
-    benefit: "จัดเอกสารเข้าสายงานที่ถูกต้องตั้งแต่ต้นทาง",
   }),
   new Solution({
     name: "NER Extraction",

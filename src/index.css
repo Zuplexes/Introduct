@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #020617;
+  --color-accent: #22d3ee;
+  --color-accent-2: #a78bfa;
+}
+
+body {
+  background: var(--color-ink);
+}
+
+/* scroll reveal — คลาส .in ถูกเติมโดย useReveal() */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+[data-reveal].in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
